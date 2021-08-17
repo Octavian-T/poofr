@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct RoomViewTopBar: View {
     struct TopCap: View {
         var body: some View {

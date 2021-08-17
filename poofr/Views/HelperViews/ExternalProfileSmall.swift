@@ -21,6 +21,7 @@ struct ExternalProfileSmall: View {
     var title: String
     var libido: Bool
     var imageLoc: String
+    @State private var animationAmount = 0.0
     var image: Image {
         let sourceImage = UIImage(
             named: imageLoc
@@ -52,44 +53,52 @@ struct ExternalProfileSmall: View {
     }
     var capDesc: Array<String>
     var body: some View {
-        VStack(alignment: .center, spacing: -20) {
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .strokeBorder(Color.black, lineWidth: 0.8))
-            VStack(alignment: .leading, spacing:5) {
-                Text("Fuck yea")
-                    .font(.title2)
-                    .foregroundColor(.black)
-                    .padding(4)
-                    .background(Color.white)
+        Button(action: {
+            withAnimation(.easeIn){
+                self.animationAmount += 360
+            }
+        }){
+            VStack(alignment: .center, spacing: -20) {
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
                             .strokeBorder(Color.black, lineWidth: 0.8))
-                HStack {
-                    CapDesc(desc: capDesc[0])
-                    CapDesc(desc: capDesc[1])
+                VStack(alignment: .leading, spacing:5) {
+                    Text("Fuck yea")
+                        .font(.title2)
+                        .foregroundColor(.black)
+                        .padding(4)
+                        .background(Color.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .strokeBorder(Color.black, lineWidth: 0.8))
+                    HStack {
+                        CapDesc(desc: capDesc[0])
+                        CapDesc(desc: capDesc[1])
+                    }
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(10)
+                .background(Color.gray)
+                .clipShape(RoundedRectangle(cornerRadius: 30))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 30)
+                        .strokeBorder(Color.black, lineWidth: 0.8))
+                .opacity(0.90)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(10)
-            .background(Color.gray)
-            .clipShape(RoundedRectangle(cornerRadius: 30))
-            .overlay(
-                RoundedRectangle(cornerRadius: 30)
-                    .strokeBorder(Color.black, lineWidth: 0.8))
-            .opacity(0.90)
+            .padding(5)
+            .shadow(radius: 50).accentColor(.white)
+            .rotation3DEffect(
+                .degrees(animationAmount),
+                axis: (x: 0.0, y: 1.0, z: 0.0)
+            )
         }
-        .padding(5)
-        .shadow(radius: 50).accentColor(.white)
     }
 }
-
-
 struct ExternalProfileSmall_Previews: PreviewProvider {
     static var previews: some View {
         ExternalProfileSmall(title:"super duper sexy time", libido: true, imageLoc: "patrick", capDesc: ["safe", "kink"])

@@ -13,7 +13,7 @@ struct RoomView: View {
     var body: some View {
         VStack(spacing:0) {
             RoomViewTopBar(position: true)
-                .frame(height:85)
+                .frame(height: 85)
             ScrollView {
                 VStack(spacing:5) {
                     ForEach(0 ..< 15) { number1 in
@@ -24,8 +24,8 @@ struct RoomView: View {
                     }
                 }
             }
-            .background(LinearGradient(gradient: Gradient(colors: [Color(red: 0.2, green: 0.1, blue: 0.1, opacity: 1), Color(red: 0.2, green: 0.2, blue: 0.3, opacity: 1)]), startPoint: .leading, endPoint: .trailing))
         }
+        .background(LinearGradient(gradient: Gradient(colors: [Color(red: 0.2, green: 0.1, blue: 0.1, opacity: 1), Color(red: 0.2, green: 0.2, blue: 0.3, opacity: 1)]), startPoint: .leading, endPoint: .trailing))
     } //body
 } //struct
 
