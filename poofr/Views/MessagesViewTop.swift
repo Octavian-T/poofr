@@ -1,12 +1,13 @@
 //
-//  RoomViewTopBar.swift
+//  MessagesViewTop.swift
 //  poofr
 //
-//  Created by Octavian Tabacaru on 12/08/2021.
+//  Created by Octavian Tabacaru on 18/08/2021.
 //
 
 import SwiftUI
-struct RoomViewTopBar: View {
+
+struct MessagesViewTop: View {
     struct TopCap: View {
         var body: some View {
             Text("top")
@@ -40,33 +41,11 @@ struct RoomViewTopBar: View {
             LinearGradient(gradient: Gradient(colors: [Color(red: 0.2, green: 0.1, blue: 0.1, opacity: 1), Color(red: 0.2, green: 0.2, blue: 0.3, opacity: 1)]), startPoint: .leading, endPoint: .trailing)
                 .edgesIgnoringSafeArea(.all)
             HStack(alignment: .center) {
-                HStack {
-                    if position {
-                        TopCap()
-                    }else{
-                        BottomCap()
-                    }
-                    Text("for")
-                        .foregroundColor(.black)
-                    if position {
-                        BottomCap()
-                    }else{
-                        TopCap()
-                    }
-                }
-                .background(Color.gray)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
+                Text("Messages")
+                    .foregroundColor(.white)
+                    .font(.largeTitle)
                 Spacer()
-                Button(action: {
-                    
-                }) {
-                    Image(systemName: "building.fill")
-                        .foregroundColor(.white)
-                        .padding(2)
-                        .font(.title)
-                        .background(Color(red: btnColor[0], green: btnColor[1], blue: btnColor[2]))
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                }
+                GayToggle()
             }
             .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 10))
         }
@@ -74,9 +53,9 @@ struct RoomViewTopBar: View {
 }
 
 
-struct RoomViewTopBar_Previews: PreviewProvider {
+struct MessagesViewTop_Previews: PreviewProvider {
     static var previews: some View {
-        RoomViewTopBar(position: false)
-            .frame(height: 10)
+        MessagesViewTop(position: true)
+            .frame(height:85)
     }
 }

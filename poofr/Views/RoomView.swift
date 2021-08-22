@@ -18,8 +18,8 @@ struct RoomView: View {
                 VStack(spacing:5) {
                     ForEach(0 ..< 15) { number1 in
                         HStack(spacing:5) {
-                            ExternalProfileSmall(title: "super duper extra", libido: libidos[number1], imageLoc: images[number1], capDesc: ["drinks", "potato"])
-                            ExternalProfileSmall(title: "sex", libido: libidos[number1+1], imageLoc: images[number1+1], capDesc: ["drinks", "potato"])
+                            ExternalProfileSmall(title: "super duper extra", libido: libidos[number1], imageLoc: images[number1], capDesc: ["2", "4"])
+                            ExternalProfileSmall(title: "sex", libido: libidos[number1+1], imageLoc: images[number1+1], capDesc: ["2", "4"])
                         }
                     }
                 }
