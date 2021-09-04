@@ -34,7 +34,6 @@ struct RoomViewTopBar: View {
             }
             .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 10))
         }
-        .background(Color(red: 0.15, green: 0.15, blue: 0.15))
     }
 }
 

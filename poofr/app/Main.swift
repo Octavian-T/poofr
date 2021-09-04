@@ -13,22 +13,26 @@ struct Main: View {
     }
     var body: some View {
         TabView {
-            RoomView()
-                .tabItem {
-                    Image(systemName: "person")
-                }
-            MessagesView()
-                .tabItem {
-                    Image(systemName: "message")
-                }
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "house")
-                }
-            SettingsView()
-                .tabItem {
-                    Image(systemName: "gear")
-                }
+            Group {
+                RoomView()
+                    .tabItem {
+                        Image(systemName: "person")
+                    }
+                MessagesView()
+                    .tabItem {
+                        Image(systemName: "message")
+                    }
+                ProfileView()
+                    .tabItem {
+                        Image(systemName: "house")
+                    }
+                SettingsView()
+                    .tabItem {
+                        Image(systemName: "gear")
+                    }
+            }
+            .background(Color(red: 0.15, green: 0.15, blue: 0.15))
+            .edgesIgnoringSafeArea(.all)
         } //tabview
     } //body
 } // struct

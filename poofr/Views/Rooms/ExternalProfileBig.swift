@@ -175,8 +175,6 @@ struct ExternalProfileBig: View {
         }//scrollview
         .padding(10)
         .shadow(radius: 50).accentColor(.white)
-        .background((LinearGradient(gradient: Gradient(colors: [Color(red: 0.2, green: 0.1, blue: 0.1, opacity: 1), Color(red: 0.2, green: 0.2, blue: 0.3, opacity: 1)]), startPoint: .leading, endPoint: .trailing)))
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
