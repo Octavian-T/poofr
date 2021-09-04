@@ -57,6 +57,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C33C6BE26DD6A360016009B /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				2C33C6C426DD6B110016009B /* Helpers */,
+				2CF9AB6B26C31711005B0D30 /* MessagesView.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		2C33C6BF26DD6A3E0016009B /* Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				2C33C6C226DD6AA20016009B /* Helpers */,
+				2CFF3A2B26C2D4130050BC1C /* RoomView.swift */,
+				2C7EA4DD26D1B11500E56EC6 /* ExternalProfileBig.swift */,
+			);
+			path = Rooms;
+			sourceTree = "<group>";
+		};
+		2C33C6C026DD6A490016009B /* InternalProfiles */ = {
+			isa = PBXGroup;
+			children = (
+				2CFF3A2926C2CE3C0050BC1C /* ProfileView.swift */,
+			);
+			path = InternalProfiles;
+			sourceTree = "<group>";
+		};
+		2C33C6C126DD6A8C0016009B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2CFF3A2F26C2D4F30050BC1C /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		2C33C6C226DD6AA20016009B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2CF9AB7026C548CF005B0D30 /* RoomViewTopBar.swift */,
+				2C732ED926C71A2500BE7644 /* GayToggle.swift */,
+				2CF9AB6E26C548AB005B0D30 /* ExternalProfileSmall.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2C33C6C326DD6AEB0016009B /* app */ = {
+			isa = PBXGroup;
+			children = (
+				2CFD15EB26BF16FB00589D61 /* poofr.xcdatamodeld */,
+				2CFD15E926BF16FB00589D61 /* Persistence.swift */,
+				2CFD15E026BF16FA00589D61 /* poofrApp.swift */,
+				2CFD15E226BF16FA00589D61 /* ContentView.swift */,
+				2CFF3A2726C2CDDE0050BC1C /* Main.swift */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		2C33C6C426DD6B110016009B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2C70F3DD26CDB5F7003A061F /* MessagesViewTop.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		2CFD15D426BF16FA00589D61 = {
 			isa = PBXGroup;
 			children = (
@@ -76,11 +141,9 @@
 		2CFD15DF26BF16FA00589D61 /* poofr */ = {
 			isa = PBXGroup;
 			children = (
-				2CFF3A2626C2CD910050BC1C /* Views */,
-				2CFD15E026BF16FA00589D61 /* poofrApp.swift */,
-				2CFD15E926BF16FB00589D61 /* Persistence.swift */,
-				2CFD15EB26BF16FB00589D61 /* poofr.xcdatamodeld */,
 				2CFD15EE26BF16FB00589D61 /* Info.plist */,
+				2C33C6C326DD6AEB0016009B /* app */,
+				2CFF3A2626C2CD910050BC1C /* Views */,
 				2CFD15E426BF16FB00589D61 /* Assets.xcassets */,
 				2CFD15E626BF16FB00589D61 /* Preview Content */,
 			);
@@ -98,17 +161,10 @@
 		2CFF3A2626C2CD910050BC1C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2CFD15E226BF16FA00589D61 /* ContentView.swift */,
-				2CFF3A2726C2CDDE0050BC1C /* Main.swift */,
-				2CFF3A2B26C2D4130050BC1C /* RoomView.swift */,
-				2CF9AB6B26C31711005B0D30 /* MessagesView.swift */,
-				2CFF3A2926C2CE3C0050BC1C /* ProfileView.swift */,
-				2CFF3A2F26C2D4F30050BC1C /* SettingsView.swift */,
-				2CF9AB6E26C548AB005B0D30 /* ExternalProfileSmall.swift */,
-				2CF9AB7026C548CF005B0D30 /* RoomViewTopBar.swift */,
-				2C732ED926C71A2500BE7644 /* GayToggle.swift */,
-				2C70F3DD26CDB5F7003A061F /* MessagesViewTop.swift */,
-				2C7EA4DD26D1B11500E56EC6 /* ExternalProfileBig.swift */,
+				2C33C6C126DD6A8C0016009B /* Settings */,
+				2C33C6C026DD6A490016009B /* InternalProfiles */,
+				2C33C6BF26DD6A3E0016009B /* Rooms */,
+				2C33C6BE26DD6A360016009B /* Messages */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -15,6 +15,7 @@ struct poofrApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.colorScheme, .dark)
         }
     }
 }

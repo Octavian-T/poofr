@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MessagesView: View {
-    //@State private var animAmnt = [CGSize.zero, CGSize.zero, CGSize.zero, CGSize.zero, CGSize.zero, CGSize.zero, CGSize.zero, CGSize.zero, CGSize.zero, CGSize.zero, , CGSize.zero, CGSize.zero, CGSize.zero, CGSize.zero]
+    @State private var animAmntOpa = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ]
+    @State private var animAmnt = [CGSize(width: 0.0, height: 0.0), CGSize(width: 0.0, height: 0.0), CGSize(width: 0.0, height: 0.0), CGSize(width: 0.0, height: 0.0), CGSize(width: 0.0, height: 0.0), CGSize(width: 0.0, height: 0.0)]
     var image: Image {
         let sourceImage = UIImage(
             named: "patrick"
@@ -38,39 +39,47 @@ struct MessagesView: View {
         )!
         return Image(uiImage: UIImage(cgImage: croppedCGImage))
     }
-    var arr = ["Hello", "Hi", "Sup", "Hii", "hello"]
     var body: some View {
-        VStack {
-            MessagesViewTop(position: true)
-                .frame(height:85)
+        VStack(spacing:10) {
+            MessagesViewTop()
+                .frame(height:55)
+                .padding(.top, 30)
             ScrollView{
                 VStack(spacing: 0) {
-                    ForEach(0 ..< 50) { number in
+                    ForEach(0 ..< 5) { number in
                         HStack(spacing: 10) {
                             image
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                                .padding(5)/*
+                                .padding(5)
                                 .offset(x: animAmnt[number].width)
                                 .gesture(
                                     DragGesture()
                                         .onChanged({
-                                            withAnimation(.spring()) {
-                                                self.animAmnt[number].width = $0.translation.width
+                                            if $0.translation.width > 10 && $0.translation.width < 40 {
+                                                self.animAmntOpa[number] = 0.8
+                                            }else if $0.translation.width > 40 && $0.translation.width < 80 {
+                                                self.animAmntOpa[number] = 0.4
+                                            }else if $0.translation.width > 80 && $0.translation.width < 160 {
+                                                self.animAmntOpa[number] = 0.2
+                                            }else if $0.translation.width > 160 && $0.translation.width < 200 {
+                                                self.animAmntOpa[number] = 0.05
                                             }
+                                            self.animAmnt[number].width = $0.translation.width
                                         })
                                         .onEnded({ _ in
                                             withAnimation(.spring()){
+                                                self.animAmntOpa[number] = 1.0
                                                 self.animAmnt[number].width = .zero
                                             }
                                         })
                                 )
                                 .animation(.spring())
-                             */
                             Text("so how are you doing do you want to fuck?\(number)")
                                 .font(.title3)
                                 .foregroundColor(.white)
+                                .opacity(animAmntOpa[number])
                         }
                         .frame(maxWidth: .infinity, maxHeight:90)
                         .background(Color.gray.opacity(0.3))
@@ -81,7 +90,7 @@ struct MessagesView: View {
             }
         }
         .background(LinearGradient(gradient: Gradient(colors: [Color(red: 0.2, green: 0.1, blue: 0.1, opacity: 1), Color(red: 0.2, green: 0.2, blue: 0.3, opacity: 1)]), startPoint: .leading, endPoint: .trailing))
-        .edgesIgnoringSafeArea(.bottom)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
