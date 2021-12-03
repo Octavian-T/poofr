@@ -42,8 +42,6 @@ struct MessagesView: View {
     var body: some View {
         VStack(spacing:10) {
             MessagesViewTop()
-                .frame(height:55)
-                .padding(.top, 30)
             ScrollView{
                 VStack(spacing: 0) {
                     ForEach(0 ..< 5) { number in
@@ -57,16 +55,20 @@ struct MessagesView: View {
                                 .gesture(
                                     DragGesture()
                                         .onChanged({
-                                            if $0.translation.width > 10 && $0.translation.width < 40 {
-                                                self.animAmntOpa[number] = 0.8
-                                            }else if $0.translation.width > 40 && $0.translation.width < 80 {
-                                                self.animAmntOpa[number] = 0.4
-                                            }else if $0.translation.width > 80 && $0.translation.width < 160 {
-                                                self.animAmntOpa[number] = 0.2
-                                            }else if $0.translation.width > 160 && $0.translation.width < 200 {
-                                                self.animAmntOpa[number] = 0.05
+                                            if $0.translation.width > 10 && $0.translation.width < 250 {
+                                                if $0.translation.width > 10 && $0.translation.width < 40 {
+                                                    self.animAmntOpa[number] = 0.8
+                                                }else if $0.translation.width > 40 && $0.translation.width < 80 {
+                                                    self.animAmntOpa[number] = 0.4
+                                                }else if $0.translation.width > 80 && $0.translation.width < 160 {
+                                                    self.animAmntOpa[number] = 0.2
+                                                }else if $0.translation.width > 160 && $0.translation.width < 200 {
+                                                    self.animAmntOpa[number] = 0.05
+                                                }else if $0.translation.width > 220 {
+                                                    self.animAmntOpa[number] = 0
+                                                }
+                                                self.animAmnt[number].width = $0.translation.width
                                             }
-                                            self.animAmnt[number].width = $0.translation.width
                                         })
                                         .onEnded({ _ in
                                             withAnimation(.spring()){
@@ -80,6 +82,7 @@ struct MessagesView: View {
                                 .font(.title3)
                                 .foregroundColor(.white)
                                 .opacity(animAmntOpa[number])
+                                .padding()
                         }
                         .frame(maxWidth: .infinity, maxHeight:90)
                         .background(Color.gray.opacity(0.3))
@@ -89,7 +92,7 @@ struct MessagesView: View {
                 }
             }
         }
-        .background(LinearGradient(gradient: Gradient(colors: [Color(red: 0.2, green: 0.1, blue: 0.1, opacity: 1), Color(red: 0.2, green: 0.2, blue: 0.3, opacity: 1)]), startPoint: .leading, endPoint: .trailing))
+        .background(Color(red: 0.15, green: 0.15, blue: 0.15))
         .edgesIgnoringSafeArea(.all)
     }
 }

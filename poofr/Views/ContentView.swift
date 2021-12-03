@@ -9,6 +9,11 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    init() {
+        UITabBar.appearance().unselectedItemTintColor = UIColor.lightGray
+        UITabBar.appearance().isTranslucent = true
+        UITabBar.appearance().backgroundColor = UIColor(Color(red: 0.15, green: 0.15, blue: 0.15))
+    }
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
@@ -17,7 +22,25 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
 
     var body: some View {
-        Main()
+        TabView {
+            RoomView()
+                .tabItem {
+                    Image(systemName: "person")
+                }
+            MessagesView()
+                .tabItem {
+                    Image(systemName: "message")
+                }
+            ProfileView()
+                .tabItem {
+                    Image(systemName: "house")
+                }
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "gear")
+                }
+        }
+        .accentColor(Color(red: 150/255, green: 120/255, blue: 1))
     }
 
     private func addItem() {
